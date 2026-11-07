@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fan-made static recompilation project bringing the original Xbox version of The Simpsons: Hit & Run toward a native PC build. Current bring-up boots to the title screen and attract demo.">
+  <meta property="og:title" content="The Simpsons: Hit &amp; Run — Recomp">
+  <meta property="og:description" content="A VetTV Studios fan project using static recompilation to bring the original Xbox game toward native PC.">
+  <meta property="og:image" content="assets/title-screen.png">
+  <title>The Simpsons: Hit &amp; Run — Recomp | VetTV Studios</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <span class="brand-mark" aria-hidden="true">V</span>
+      <span>VetTV Studios</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="#status">Status</a>
+      <a href="#how">How it works</a>
+      <a href="#progress">Progress</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#legal">Legal</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="project-type">Original Xbox &rarr; native PC · static recompilation</p>
+        <h1 id="page-title">The Simpsons<br><span>Hit &amp; Run</span><br>Recomp</h1>
+        <p class="lede">
+          A fan-made bring-up of the 2003 original Xbox game as native Windows code.
+          The current build reaches the title screen and attract-mode demo.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#status">See current status</a>
+          <a class="button button-quiet" href="#how">How the port works</a>
+        </div>
+        <p class="notice">
+          <strong>Bring-up build:</strong> promising, unstable, and not ready to call playable.
+        </p>
+      </div>
+      <figure class="hero-media">
+        <img src="assets/title-screen.png" alt="The Simpsons: Hit &amp; Run title logo running in the native PC build">
+        <figcaption>Verified locally: title logo after leaving attract mode with keyboard input.</figcaption>
+      </figure>
+    </section>
+
+    <section class="status-band" id="status" aria-labelledby="status-title">
+      <div class="section-inner status-grid">
+        <div>
+          <h2 id="status-title">Where it stands</h2>
+          <p>
+            The hard first step is done: this title's XDK 5455 libraries were identified,
+            the full executable was translated, and the native build boots into real game
+            presentation instead of stopping at startup traps.
+          </p>
+        </div>
+        <dl class="metrics" aria-label="Verified project metrics">
+          <div><dt>134 / 248</dt><dd>host symbols resolved</dd></div>
+          <div><dt>10 / 13</dt><dd>required data symbols</dd></div>
+          <div><dt>20,674</dt><dd>functions recompiled</dd></div>
+          <div><dt>Title + demo</dt><dd>latest boot milestone</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="section-inner two-column">
+        <div>
+          <h2 id="how-title">Not emulation.<br>Translation.</h2>
+          <p>
+            Static recompilation turns the Xbox executable into native code before it runs.
+            Xbox library calls are matched to PC implementations for graphics, sound, input,
+            files, and system services.
+          </p>
+          <p>
+            That makes enhancements possible later, but the first job is correctness:
+            identify the exact XDK build, prove its data layouts from the binary, and fix
+            one boot blocker at a time.
+          </p>
+        </div>
+        <ol class="steps">
+          <li><strong>Identify</strong><span>Match library functions and data in the XBE.</span></li>
+          <li><strong>Translate</strong><span>Generate native C++ for the game executable.</span></li>
+          <li><strong>Replace</strong><span>Serve Xbox APIs with a PC runtime.</span></li>
+          <li><strong>Debug</strong><span>Use logs, traps, and screenshots to move boot forward.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section demo-section" aria-labelledby="demo-title">
+      <div class="section-inner">
+        <div class="demo-heading">
+          <h2 id="demo-title">Attract mode is rendering</h2>
+          <p>Captured from the local Windows build during automated smoke testing.</p>
+        </div>
+        <figure class="demo-shot">
+          <img src="assets/attract-demo.png" alt="Attract-mode demo showing a police car and wrecked vehicle on a curved road">
+          <figcaption>The demo is encouraging evidence, not a gameplay verdict. Menus, missions, saving, and long-session stability still need testing.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="progress" aria-labelledby="progress-title">
+      <div class="section-inner">
+        <h2 id="progress-title">Bring-up log</h2>
+        <div class="log-list">
+          <article>
+            <time datetime="2026-11">November 2026</time>
+            <h3>XDK 5455 signatures bootstrapped</h3>
+            <p>Seed scans from nearby XDK builds were merged, validated against XbSymbolDatabase, then signed from this binary. Overlap check: 74 agreements and zero disagreements.</p>
+          </article>
+          <article>
+            <time datetime="2026-11">November 2026</time>
+            <h3>Native build linked</h3>
+            <p>Codegen translated 20,674 functions. The resulting Windows executable and game-code DLL link successfully.</p>
+          </article>
+          <article>
+            <time datetime="2026-11">November 2026</time>
+            <h3>First crashes traced</h3>
+            <p>A null-safe DSound AddRef hook, restored D3D data recipes, proven VBlank layout offsets, and newly identified Bink functions moved boot through sound and D3D12 setup.</p>
+          </article>
+          <article>
+            <time datetime="2026-11">November 2026</time>
+            <h3>Title and demo verified</h3>
+            <p>Screenshots confirm the attract-mode demo rendering in 3D and keyboard input returning to the title logo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="section-inner two-column">
+        <div>
+          <h2 id="roadmap-title">Next under the hood</h2>
+          <p>
+            The next work is less visible than a title screen, but it decides whether the
+            port can become stable and actually playable.
+          </p>
+        </div>
+        <ul class="roadmap">
+          <li><strong>Pin the sound stream vtables.</strong><span>Constructor candidates exist, but guessed addresses will not be shipped as facts.</span></li>
+          <li><strong>Prove the remaining 5455 layout.</strong><span>Several device fields still come from another XDK build.</span></li>
+          <li><strong>Test the real front end.</strong><span>Menus, input paths, loading, saving, and the first mission need structured passes.</span></li>
+          <li><strong>Chase defects by evidence.</strong><span>Every fix should come from a log, a trap, a screenshot, or a reproducible failure.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section legal-section" id="legal" aria-labelledby="legal-title">
+      <div class="section-inner legal-grid">
+        <div>
+          <h2 id="legal-title">Bring your own game</h2>
+          <p>
+            This is an unofficial fan project by VetTV Studios. It is not affiliated with or
+            endorsed by the rights holders or original developers of <em>The Simpsons: Hit &amp; Run</em>,
+            The Simpsons, Microsoft, or Xbox.
+          </p>
+        </div>
+        <div class="legal-copy">
+          <p>You must supply a legally acquired copy of the original Xbox game. This project does not provide ISOs, XBEs, extracted assets, keys, or compiled game downloads.</p>
+          <p>Screenshots on this page were captured locally from the team's own dump for development documentation.</p>
+          <p>Built with respect for the upstream <a href="https://github.com/TGP482/XboxXBERecomp">XboxXBERecomp</a> and <a href="https://github.com/Cxbx-Reloaded/XbSymbolDatabase">XbSymbolDatabase</a> projects.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>VetTV Studios</span>
+    <span>Fan-made preservation and porting research. No game files included.</span>
+  </footer>
+</body>
+</html>

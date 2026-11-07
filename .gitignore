@@ -1,0 +1,14 @@
+# Never commit game dumps, extracted game data, or build output.
+/assets/
+/generated/
+/out/
+/build/
+*.iso
+*.xiso
+*.xbe
+*.bin
+*.cue
+*.dmp
+*.log
+__pycache__/
+.venv/
