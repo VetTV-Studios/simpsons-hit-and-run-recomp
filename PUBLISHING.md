@@ -1,8 +1,9 @@
 # Publishing checklist
 
-This folder is a local draft. It has **not** been pushed to GitHub yet.
+Published on 2026-11-07. The first publication below is kept as a record of
+what was checked before the push.
 
-Planned destination after review:
+Destination:
 
 - Repository: `VetTV-Studios/simpsons-hit-and-run-recomp`
 - Visibility: public
